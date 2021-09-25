@@ -45,6 +45,7 @@ function extract() {
     finalObj["datetime"] = new Date().toLocaleString();
     finalObj["sections"] = sections;
     console.log(finalObj);
+    //exportData(finalObj);
 
 }
 
@@ -92,6 +93,16 @@ function processCategory(categoryElement) {
         return retObj;
 }
 
+function exportData(data) {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], {
+      type: "text/plain"
+    }));
+    a.setAttribute("download", "data.json");
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
 
 
 /** 

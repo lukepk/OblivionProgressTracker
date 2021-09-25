@@ -91,6 +91,9 @@ function processCategory(categoryElement) {
         retObj["content"] = processUnorderedList(unorderedListElem);
         return retObj;
 }
+
+
+
 /** 
 {
     sections: [
@@ -102,7 +105,14 @@ function processCategory(categoryElement) {
                 },
                 {type: line, content: "str1"}, 
                 {type: line, content: "str2"}, 
-                {type: sublist, mainrow:"", content: ["nested1", "nested2"]},
+                {
+                    type: sublist, 
+                    prelude:"", 
+                    content: [
+                        {type: line, content: "nested1"},
+                        {type: line, content: "nested2"}
+                    ]
+                },
             ]
         },
         {
@@ -110,7 +120,14 @@ function processCategory(categoryElement) {
             content: [
                 {type: line, content: "str1"}, 
                 {type: line, content: "str2"}, 
-                {type: sublist, mainrow:"", content: ["nested1", "nested2"]},
+                {
+                    type: sublist, 
+                    prelude:"This is some text", 
+                    content: [
+                        {type: line, content: "nested1"}, 
+                        {type: line, content: "nested2"}
+                    ]
+                },
             ]
         }
     ]
